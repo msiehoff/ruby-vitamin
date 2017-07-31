@@ -9,7 +9,7 @@ loop do
     case input
     when "help"
         puts Messages.help
-    when "modules"
+    when "vitamins"
         message = "#{Messages::NEW_LINE}"
         Dispenser.modules.each { |item| message += "#{item}#{Messages::NEW_LINE}"}
         puts message

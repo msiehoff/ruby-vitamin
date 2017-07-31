@@ -2,7 +2,7 @@ module Messages
     COMMANDS = {
         help: "View list of Ruby Vitamin commands",
         quit: "Leave Ruby Vitamin",
-        modules: "List out learning modules",
+        vitamins: "List out learning modules",
     }
 
     NEW_LINE = "\n"
