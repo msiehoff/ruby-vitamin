@@ -9,6 +9,7 @@ class Dispenser
     end
 
     def select_module(module_name)
+        return false if module_name.nil?
         return false unless Dispenser.modules.include? module_name
 
         @selected_module = module_name

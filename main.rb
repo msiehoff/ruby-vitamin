@@ -1,7 +1,14 @@
 require_relative "app/messages.rb"
 require_relative "app/dispenser.rb"
 
+def show_vitamins
+    message = "#{Messages::NEW_LINE}----Vitamins----#{Messages::NEW_LINE}"
+    vitamins = Dispenser.modules.each { |item| message += "#{item}#{Messages::NEW_LINE}"}
+    puts message
+end
+
 puts " --- Welcome to Ruby Vitamin! ---"
+dispenser = Dispenser.new
 
 loop do    
     input = gets.chomp
@@ -10,11 +17,24 @@ loop do
     when "help"
         puts Messages.help
     when "vitamins"
-        message = "#{Messages::NEW_LINE}"
-        Dispenser.modules.each { |item| message += "#{item}#{Messages::NEW_LINE}"}
-        puts message
+        show_vitamins
     when "quit"
         puts "Bye!"
         break
+    end
+
+    if input.include? "select "
+        if input.nil?
+            puts " > please enter a vitamin name"
+            show_vitamins
+            continue
+        end
+
+        input.slice! "select "
+        input.downcase!
+        continue if dispenser.select_module input
+
+        puts " > sorry I could not find the vitamin #{input}#{Messages::NEW_LINE}"
+        show_vitamins
     end
 end
