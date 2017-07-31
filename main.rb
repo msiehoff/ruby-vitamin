@@ -3,7 +3,7 @@ require_relative "app/dispenser.rb"
 
 def show_vitamins
     message = "#{Messages::NEW_LINE}----Vitamins----#{Messages::NEW_LINE}"
-    vitamins = Dispenser.modules.each { |item| message += "#{item}#{Messages::NEW_LINE}"}
+    vitamins = Dispenser.vitamins.each { |item| message += "#{item}#{Messages::NEW_LINE}"}
     puts message
 end
 
@@ -32,7 +32,7 @@ loop do
 
         input.slice! "select "
         input.downcase!
-        continue if dispenser.select_module input
+        continue if dispenser.select_vitamin input
 
         puts " > sorry I could not find the vitamin #{input}#{Messages::NEW_LINE}"
         show_vitamins
