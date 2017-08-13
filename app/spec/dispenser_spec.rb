@@ -21,4 +21,13 @@ describe Dispenser do
             end
         end
     end
+    describe 'exit_vitamin' do
+        it 'sets the selected_vitamin to nil' do
+            dispenser.select_vitamin "example"
+            expect(dispenser.selected_vitamin).to eq("example")
+
+            dispenser.exit_vitamin
+            expect(dispenser.selected_vitamin)
+        end
+    end
 end

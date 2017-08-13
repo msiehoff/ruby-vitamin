@@ -23,6 +23,11 @@ loop do
         break
     end
 
+    if input.include? "exit vitamin"
+        dispenser.exit_vitamin
+        continue
+    end
+
     if input.include? "select "
         if input.nil?
             puts " > please enter a vitamin name"

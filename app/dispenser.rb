@@ -15,4 +15,8 @@ class Dispenser
         @selected_vitamin = vitamin_name
         return true
     end
+
+    def exit_vitamin
+        @select_vitamin = nil
+    end
 end
